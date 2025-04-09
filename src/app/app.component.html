@@ -1,6 +1,17 @@
-<div>
-  Student Form
-  <button (click)="routeToForm()" class="btn btn-primary btn-sm ">Send Form</button>
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card shadow-sm">
+        <div class="card-body text-center">
+          <h2 class="card-title mb-4">Student Form</h2>
+
+          <!-- Submit button with Bootstrap styling -->
+          <button (click)="routeToForm()" class="btn btn-primary btn-lg w-100">
+            Submit Form
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
   <router-outlet></router-outlet>
-  
 </div>
