@@ -1,0 +1,69 @@
+<div class="container mt-5 bg-light p-5 rounded shadow-lg">
+  <h2 class="text-center text-primary mb-4">Student Registration Form</h2>
+  <div class="w-25 mx-auto mb-4" style="height: 4px; background-color: #007bff;"></div>
+
+  <form #userForm="ngForm">
+    <div class="form-group mb-3">
+      <label for="name" class="form-label fw-bold">Name</label>
+      <input
+      type="text"
+      id="name"
+      name="name"
+      [(ngModel)]="data.name"
+      #name="ngModel"
+      required
+      minlength="3"
+      (input)="nameValidate($event)"
+      class="form-control border-primary shadow-sm"
+      placeholder="Enter your name"
+    />
+    
+      <div *ngIf="name.invalid && (name.dirty || name.touched)" class="small text-danger mt-1">
+        <span *ngIf="name.errors?.['required']">Name is required.</span>
+
+      </div>
+    </div>
+
+    <div class="form-group mb-3">
+      <label for="email" class="form-label fw-bold">Email</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        [(ngModel)]="data.email"
+        #email="ngModel"
+        required
+        class="form-control border-primary shadow-sm"
+        placeholder="Enter your email"
+      />
+      <div *ngIf="email.invalid && (email.dirty || email.touched)" class="small text-danger mt-1">
+        <span *ngIf="email.errors?.['required']">Email is required.</span>
+        <span *ngIf="email.errors?.['email']">Please enter a valid email.</span>
+      </div>
+    </div>
+    <div class="form-group mb-3">
+      <label for="phoneno" class="form-label fw-bold">Phone Number</label>
+      <input
+        type="text"
+        id="phoneno"
+        name="phoneno"
+        [(ngModel)]="data.phoneNumber"
+        #phoneno="ngModel"
+        maxlength="10"
+        (input)="noValidate($event)"
+        required
+        class="form-control border-primary shadow-sm"
+        placeholder="Enter your phone number"
+      />
+      <div *ngIf="phoneno.invalid && (phoneno.dirty || phoneno.touched)" class="small text-danger mt-1">
+        <span *ngIf="phoneno.errors?.['required']">Phone Number is required.</span>
+      </div>
+    </div>
+    <div class="text-center">
+      <button type="submit"  (click)="submitData(userForm)" class="btn btn-primary btn-lg px-5">
+        Submit
+      </button>
+    </div>
+  </form>
+</div>
+
